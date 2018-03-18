@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service Server {
+  rpc Status (ServerRequest) returns (DiskStatus) {}
+}
+
+message ServerRequest {
+  string name = 1;
+}
+
+message DiskStatus {
+  string total = 1;
+}
