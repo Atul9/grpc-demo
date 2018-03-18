@@ -1,12 +1,11 @@
 syntax = "proto3";
 
-service Server {
-  rpc Status (ServerRequest) returns (DiskStatus) {}
+package server;
+service Status {
+  rpc HandleRequest (Empty) returns (DiskStatus) {}
 }
 
-message ServerRequest {
-  string name = 1;
-}
+message Empty {}
 
 message DiskStatus {
   string total = 1;

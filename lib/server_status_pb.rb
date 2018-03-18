@@ -4,13 +4,14 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "ServerRequest" do
-    optional :name, :string, 1
+  add_message "server.Empty" do
   end
-  add_message "DiskStatus" do
+  add_message "server.DiskStatus" do
     optional :total, :string, 1
   end
 end
 
-ServerRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("ServerRequest").msgclass
-DiskStatus = Google::Protobuf::DescriptorPool.generated_pool.lookup("DiskStatus").msgclass
+module Server
+  Empty = Google::Protobuf::DescriptorPool.generated_pool.lookup("server.Empty").msgclass
+  DiskStatus = Google::Protobuf::DescriptorPool.generated_pool.lookup("server.DiskStatus").msgclass
+end
